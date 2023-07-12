@@ -1,0 +1,1 @@
+<img class="img-fluid" width="72" src="{{ asset('images/logo-rohul.png') }}" alt="Logo Rohul">
