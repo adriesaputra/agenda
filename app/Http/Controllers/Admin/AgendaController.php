@@ -78,14 +78,13 @@ class AgendaController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
             'deskripsi_acara' => 'required',
             'lokasi_acara' => 'required',
             'waktu_acara' => 'required'
         ]);
         $agenda = Agenda::create([
-            'title' => $request->title,
-            'slug' => str()->slug($request->slug),
+            'title' => $title = $request->title,
+            'slug' => str($title)->slug(),
             'deskripsi_acara' => $request->deskripsi_acara,
             'lokasi_acara' => $request->lokasi_acara,
             'waktu_acara' => $request->waktu_acara,

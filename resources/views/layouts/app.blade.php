@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? config('app.name', 'Agenda') }}</title>
     <link rel="icon" href="{{ asset('images/logo-rohul.png') }}" type="image/gif" sizes="16x16">
 
     @notifyCss
@@ -14,7 +14,7 @@
     @vite(['resources/js/app.js'])
 
     @isset($styles)
-    {{ $styles }}
+        {{ $styles }}
     @endisset
 </head>
 
@@ -27,19 +27,18 @@
 
         <section class="d-flex flex-column gap-4">
             @if (isset($header))
-            {{ $header }}
+                {{ $header }}
             @endif
 
             {{ $slot }}
         </section>
     </main>
 
-    <x:notify-messages />
-
+    <x-notify::notify />
     @notifyJs
 
     @isset($scripts)
-    {{ $scripts }}
+        {{ $scripts }}
     @endisset
 
 </body>
